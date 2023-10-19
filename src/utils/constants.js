@@ -15,19 +15,20 @@ import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 export const logo = 'https://i.ibb.co/s9Qys2j/logo.png';
 
 export const categories = [
-  { name: 'Math', icon: <HomeIcon />, },
-  { name: 'English', icon: <CodeIcon />, },
-  { name: 'Spoken', icon: <CodeIcon />, },
-  { name: 'Music', icon: <CodeIcon />, },
+  { name: 'Math for kids', icon: <HomeIcon />, },
+  { name: 'English grammer kids', icon: <CodeIcon />, },
+  { name: 'Bright Side', icon: <CodeIcon />, },
+  { name: 'Rock and learn', icon: <CodeIcon />, },
   { name: 'General Science', icon: <CodeIcon />, },
-  { name: 'HPE', icon: <MusicNoteIcon /> },
-  { name: 'Story', icon: <SchoolIcon />, },
-  { name: 'Amharic', icon: <GraphicEqIcon />, },
-  { name: 'EVS', icon: <OndemandVideoIcon />, },
-  { name: 'Moral', icon: <SportsEsportsIcon />, },
-  { name: 'Piano', icon: <LiveTvIcon />, },
-  { name: 'Art', icon: <FitnessCenterIcon />, },
-  { name: 'Crafts', icon: <CheckroomIcon />, },
+  { name: 'sport kids', icon: <MusicNoteIcon /> },
+  { name: 'Story for kids', icon: <SchoolIcon />, },
+  { name: 'Homeschool Pop ', icon: <GraphicEqIcon />, },
+  { name: 'Crafts for kids', icon: <OndemandVideoIcon />, },
+  { name: 'Number blocks', icon: <SportsEsportsIcon />, },
+  { name: 'Kids Learning Tube', icon: <LiveTvIcon />, },
+  { name: 'Art for kids hub ', icon: <FitnessCenterIcon />, },
+  { name: 'todler animal number color ', icon: <CheckroomIcon />, },
+  { name: 'ye ethiopia lijoch', icon: <CheckroomIcon />, },
 
 ];
 

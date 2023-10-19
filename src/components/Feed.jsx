@@ -4,16 +4,17 @@ import {Sidebar, Videos} from "./";
 import {fetchFromAPI } from '../utils/fetchFromAPI';
 
 
+
 const Feed = () => {
 
-  const [selectedCategory, setSelectedCategory] = useState("New");
+  const [selectedCategory, setSelectedCategory] = useState("Math for kids");
   const [videos, setVideos] = useState([]);
 
 
   useEffect(() => {
     setVideos([]);
 
-    fetchFromAPI(`search?part=snippet&q=grade 2 ${selectedCategory}`)
+    fetchFromAPI(`search?part=snippet&q=  ${selectedCategory}`)
       .then((data) => setVideos(data.items))
     }, [selectedCategory]);
 
@@ -37,7 +38,6 @@ const Feed = () => {
         <Typography variant="h4" fontWeight="bold" mb={2} sx={{ color: "white" }}>
         {selectedCategory} <span style={{ color: "#FC1503" }}>Videos</span>
         </Typography>
-
         <Videos videos={videos} />
       </Box>
 
