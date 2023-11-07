@@ -4,13 +4,18 @@ import ReactPlayer from "react-player";
 import { Typography, Box, Stack } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
-import { Videos, Loader } from "./";
+
+
+import { Videos, Loader,Quize } from "./";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 
 const VideoDetail = () => {
   const [videoDetail, setVideoDetail] = useState([]);
   const [videos, setVideos] = useState([]);
   const { id } = useParams();
+  const [pause, setPause] = useState(true);
+
+
 
   useEffect(() => {
     fetchFromAPI(`videos?part=snippet,statistics&id=${id}`)
@@ -20,16 +25,58 @@ const VideoDetail = () => {
       .then((data) => setVideos(data.items))
   }, [id]);
 
-  if(!videoDetail?.snippet) return <Loader />;
+  function getIsAnswered(isAnswered)
+  {
+    setPause(isAnswered);
+  }
 
+  const MINUTE_MS = 300000;
+
+
+useEffect(() => {
+  if(pause)
+  {
+  const interval = setInterval(() => {
+   setPause(!pause);
+  }, MINUTE_MS);
+  return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
+  }
+
+}, [pause])
+
+  if(!videoDetail?.snippet) return <Loader />;
   const { snippet: { title, channelId, channelTitle }, statistics: { viewCount, likeCount } } = videoDetail;
+
+
 
   return (
     <Box minHeight="95vh">
       <Stack direction={{ xs: "column", md: "row" }}>
         <Box flex={1}>
           <Box sx={{ width: "100%", position: "sticky", top: "86px" }}>
-            <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} className="react-player" controls />
+
+          {pause?
+            <Quize open ={!pause}  getIsAnswered={getIsAnswered}/>
+            :<Quize open={!pause}  getIsAnswered={getIsAnswered}/> }
+
+            {pause?
+            <ReactPlayer
+            url={`https://www.youtube.com/watch?v=${id}`}
+            className="react-player"
+            controls={true}
+            playing={true}
+            />
+
+            :<ReactPlayer
+            url={`https://www.youtube.com/watch?v=${id}`}
+            className="react-player"
+            controls={true}
+            playing={false}
+            />
+
+            }
+
+
             <Typography color="#fff" variant="h5" fontWeight="bold" p={2}>
               {title}
             </Typography>
@@ -50,6 +97,11 @@ const VideoDetail = () => {
               </Stack>
             </Stack>
           </Box>
+
+
+
+
+
         </Box>
         <Box px={2} py={{ md: 1, xs: 5 }} justifyContent="center" alignItems="center" >
           <Videos videos={videos} direction="column" />
