@@ -33,7 +33,7 @@ const VideoDetail = () => {
     setPause(isAnswered);
   }
 
-  const MINUTE_MS = 120000;
+  const MINUTE_MS = 60000;
 
 
 useEffect(() => {

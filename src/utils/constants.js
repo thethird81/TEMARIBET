@@ -19,7 +19,7 @@ export const categories = [
   { name: 'sight words', icon: <CodeIcon />, },
   { name: 'space science for kids', icon: <CodeIcon />, },
   { name: 'General Science', icon: <CodeIcon />, },
-  { name: 'amharic story', icon: <MusicNoteIcon /> },
+  { name: 'movie for age 7', icon: <MusicNoteIcon /> },
   { name: 'Story for kids', icon: <SchoolIcon />, },
   { name: 'Crafts for kids', icon: <OndemandVideoIcon />, },
   { name: 'Number blocks', icon: <SportsEsportsIcon />, },

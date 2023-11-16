@@ -73,12 +73,12 @@
   color: #150101;
   font-size: 32px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: #e7d4e3;
+  background-color: #c8dff7;
   border-radius: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 5px solid #f9fafb;
+  border: 5px solid #d8e7f7;
   cursor: pointer;
 }
 

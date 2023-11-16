@@ -57,66 +57,66 @@ export const questions = [
     },
 
     {
-        questionText: '4 x 5',
+        questionText: '827 + 196',
         answerOptions: [
-            { answerText: '8', isCorrect: false },
-            { answerText: '12', isCorrect: false },
-            { answerText: '24', isCorrect: false },
-            { answerText: '20', isCorrect: true },
+            { answerText: '934', isCorrect: false },
+            { answerText: '990', isCorrect: false },
+            { answerText: '1020', isCorrect: false },
+            { answerText: '1023', isCorrect: true },
         ],
     },
     {
-        questionText: '4 x 6',
+        questionText: '467 + 386',
         answerOptions: [
-            { answerText: '8', isCorrect: false },
-            { answerText: '12', isCorrect: false },
-            { answerText: '24', isCorrect: true },
-            { answerText: '36', isCorrect: false },
+            { answerText: '786', isCorrect: false },
+            { answerText: '800', isCorrect: false },
+            { answerText: '853', isCorrect: true },
+            { answerText: '789', isCorrect: false },
         ],
     },
     {
-        questionText: '4 x 7',
+        questionText: '555 + 252',
         answerOptions: [
-            { answerText: '8', isCorrect: false },
-            { answerText: '12', isCorrect: false },
-            { answerText: '24', isCorrect: false },
-            { answerText: '28', isCorrect: true },
+            { answerText: '567', isCorrect: false },
+            { answerText: '098', isCorrect: false },
+            { answerText: '897', isCorrect: false },
+            { answerText: '807', isCorrect: true },
         ],
     },
     {
-        questionText: '4 x 8',
+        questionText: '433 + 379',
         answerOptions: [
-            { answerText: '8', isCorrect: false },
-            { answerText: '32', isCorrect: true },
-            { answerText: '24', isCorrect: false },
-            { answerText: '36', isCorrect: false },
+            { answerText: '675', isCorrect: false },
+            { answerText: '812', isCorrect: true },
+            { answerText: '998', isCorrect: false },
+            { answerText: '887', isCorrect: false },
         ],
     },
     {
-        questionText: '4 x 9',
+        questionText: '____ helps us to speak and chew food',
         answerOptions: [
-            { answerText: '36', isCorrect: true },
-            { answerText: '12', isCorrect: false },
-            { answerText: '24', isCorrect: false },
-            { answerText: '36', isCorrect: false },
+            { answerText: 'ear', isCorrect: false },
+            { answerText: 'nose', isCorrect: false },
+            { answerText: 'leg', isCorrect: false },
+            { answerText: 'mouth', isCorrect: true },
         ],
     },
     {
-        questionText: '4 x 11',
+        questionText: 'what part of our body helps us to balance',
         answerOptions: [
-            { answerText: '30', isCorrect: false },
-            { answerText: '36', isCorrect: false },
-            { answerText: '44', isCorrect: true },
-            { answerText: '48', isCorrect: false },
+            { answerText: 'eye', isCorrect: false },
+            { answerText: 'nose', isCorrect: false },
+            { answerText: 'ear', isCorrect: true },
+            { answerText: 'tongue', isCorrect: false },
         ],
     },
     {
-        questionText: '4 x 12',
+        questionText: 'which of the following is not true',
         answerOptions: [
-            { answerText: '30', isCorrect: false },
-            { answerText: '36', isCorrect: false },
-            { answerText: '44', isCorrect: false },
-            { answerText: '48', isCorrect: true },
+            { answerText: 'ear help us hear sound ', isCorrect: false },
+            { answerText: 'turning down the voluem is good for ears', isCorrect: false },
+            { answerText: 'dont put anything in your ear', isCorrect: false },
+            { answerText: 'keep your ears wet', isCorrect: true },
         ],
     },
     {
@@ -130,68 +130,80 @@ export const questions = [
     },
 
     {
-        questionText: '3 x 6',
+        questionText: 'አንድ አረፍተ ነገር ስንሰራ በውስጡ ቢያንስ ባለበት አና ግስ መያዝ አለበት',
         answerOptions: [
-            { answerText: '24', isCorrect: false },
-            { answerText: '15', isCorrect: false },
-            { answerText: '27', isCorrect: false },
-            { answerText: '18', isCorrect: true },
+
+            { answerText: 'ሐሰት', isCorrect: false },
+            { answerText: 'አውነት', isCorrect: true },
         ],
     },
     {
-        questionText: '3 x 7',
+        questionText: 'ከሚከተለው አረፍተ ነገር ውስጥ ባለበቱን አውጪ "ስርጉት ከእንቅልፏ ነቃች',
         answerOptions: [
-            { answerText: '24', isCorrect: false },
-            { answerText: '21', isCorrect: true },
-            { answerText: '27', isCorrect: false },
-            { answerText: '18', isCorrect: false },
+            { answerText: 'እንቅልፏ', isCorrect: false },
+            { answerText: 'ስርጉት', isCorrect: true },
+            { answerText: 'ነቃች', isCorrect: false },
+            { answerText: 'አልነቃችም', isCorrect: false },
         ],
     },
     {
-        questionText: '3 x 8',
+        questionText: 'የድርጊት ቃላት ያልሆነው',
         answerOptions: [
-            { answerText: '24', isCorrect: true },
-            { answerText: '15', isCorrect: false },
-            { answerText: '27', isCorrect: false },
-            { answerText: '18', isCorrect: false },
+            { answerText: 'ሰኞ', isCorrect: true },
+            { answerText: 'ተራመደ', isCorrect: false },
+            { answerText: 'ጮህ', isCorrect: false },
+            { answerText: 'ያዘ', isCorrect: false },
         ],
     },
     {
-        questionText: '3 x 9',
+        questionText: 'ስራ ወይም ተግባር ምን ይባላል',
         answerOptions: [
-            { answerText: '24', isCorrect: false },
-            { answerText: '15', isCorrect: false },
-            { answerText: '27', isCorrect: true },
-            { answerText: '18', isCorrect: false },
+            { answerText: 'ጨዋታ', isCorrect: false },
+            { answerText: 'ሩጫ', isCorrect: false },
+            { answerText: 'ድርጊት', isCorrect: true },
+            { answerText: 'ባለቤት', isCorrect: false },
         ],
     },
     {
-        questionText: '4 x 4',
+        questionText: 'what type of sentence is "you are amaizing!',
         answerOptions: [
-            { answerText: '8', isCorrect: false },
-            { answerText: '26', isCorrect: false },
-            { answerText: '20', isCorrect: false },
-            { answerText: '16', isCorrect: true },
+            { answerText: 'command', isCorrect: false },
+            { answerText: 'statement', isCorrect: false },
+            { answerText: 'auestion', isCorrect: false },
+            { answerText: 'exclamation', isCorrect: true },
         ],
     },
     {
-        questionText: '3 x 11',
+        questionText: 'what type of sentence is "please , stand up',
         answerOptions: [
-            { answerText: '24', isCorrect: false },
-            { answerText: '33', isCorrect: true },
-            { answerText: '27', isCorrect: false },
-            { answerText: '36', isCorrect: false },
+            { answerText: 'question', isCorrect: false },
+            { answerText: 'statement', isCorrect: false },
+            { answerText: 'command', isCorrect: true },
+            { answerText: 'exclamation', isCorrect: false },
         ],
     },
     {
-        questionText: '3 x 12',
+        questionText: 'identify the subject in the following sentences " she is to long " ',
         answerOptions: [
-            { answerText: '36', isCorrect: true },
-            { answerText: '30', isCorrect: false },
-            { answerText: '27', isCorrect: false },
-            { answerText: '33', isCorrect: false },
+            { answerText: 'long', isCorrect: false },
+            { answerText: 'she', isCorrect: true },
+            { answerText: 'is', isCorrect: false },
+            { answerText: 'to', isCorrect: false },
         ],
     },
+    {
+        questionText: 'sound of short "i"',
+        answerOptions: [
+            { answerText: 'like', isCorrect: false },
+            { answerText: 'fine', isCorrect: false },
+            { answerText: 'win', isCorrect: true },
+            { answerText: 'wine', isCorrect: false },
+        ],
+    },
+
+];
+
+export const question_2 = [
     {
         questionText: '2 + 8',
         answerOptions: [
@@ -389,7 +401,5 @@ export const questions = [
             { answerText: '9', isCorrect: false },
             { answerText: '10', isCorrect: false },
         ],
-    },
-
-
+    }
 ];
