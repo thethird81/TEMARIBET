@@ -1,5 +1,15 @@
 export const questions = [
     {
+        questionText: 'ሞክሼ ፊደላት ያልሆነውን ምረጡ።',
+        answerOptions: [
+            { answerText: 'ሀ) ሀ ', isCorrect: false },
+            { answerText: 'ለ) አ', isCorrect: false },
+            { answerText: 'ሐ) ሰ', isCorrect: false },
+            { answerText: 'መ) ጸ', isCorrect: false },
+            { answerText: 'መ) ፈ', isCorrect: true },
+        ],
+    },
+    {
         questionText: 'ቁጥሮችን በቅደም ተከተል ለማስቀመጥ የሚጠቅመን መስመር______ ይባላል።',
         answerOptions: [
             { answerText: 'ሀ) የቁጥር ቤት ', isCorrect: false },
