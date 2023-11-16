@@ -15,20 +15,19 @@ import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 export const logo = 'https://i.ibb.co/s9Qys2j/logo.png';
 
 export const categories = [
-  { name: 'Math for kids', icon: <HomeIcon />, },
-  { name: 'English grammer kids', icon: <CodeIcon />, },
-  { name: 'Bright Side', icon: <CodeIcon />, },
-  { name: 'Rock and learn', icon: <CodeIcon />, },
+  { name: 'Math add and sub kids', icon: <HomeIcon />, },
+  { name: 'sight words', icon: <CodeIcon />, },
+  { name: 'space science for kids', icon: <CodeIcon />, },
   { name: 'General Science', icon: <CodeIcon />, },
-  { name: 'sport kids', icon: <MusicNoteIcon /> },
+  { name: 'amharic story', icon: <MusicNoteIcon /> },
   { name: 'Story for kids', icon: <SchoolIcon />, },
-  { name: 'Homeschool Pop ', icon: <GraphicEqIcon />, },
   { name: 'Crafts for kids', icon: <OndemandVideoIcon />, },
   { name: 'Number blocks', icon: <SportsEsportsIcon />, },
-  { name: 'Kids Learning Tube', icon: <LiveTvIcon />, },
+  { name: 'number and color', icon: <LiveTvIcon />, },
   { name: 'Art for kids hub ', icon: <FitnessCenterIcon />, },
-  { name: 'todler animal number color ', icon: <CheckroomIcon />, },
+  { name: 'alphabet and animals ', icon: <CheckroomIcon />, },
   { name: 'ye ethiopia lijoch', icon: <CheckroomIcon />, },
+  { name: 'steve and maggie', icon: <HomeIcon />, },
 
 ];
 

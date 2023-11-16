@@ -6,6 +6,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 
 
+
 import { Videos, Loader,Quize } from "./";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 
@@ -13,7 +14,9 @@ const VideoDetail = () => {
   const [videoDetail, setVideoDetail] = useState([]);
   const [videos, setVideos] = useState([]);
   const { id } = useParams();
-  const [pause, setPause] = useState(true);
+  const [pause, setPause] = useState(false);
+
+
 
 
 
@@ -30,7 +33,7 @@ const VideoDetail = () => {
     setPause(isAnswered);
   }
 
-  const MINUTE_MS = 300000;
+  const MINUTE_MS = 120000;
 
 
 useEffect(() => {
@@ -38,6 +41,7 @@ useEffect(() => {
   {
   const interval = setInterval(() => {
    setPause(!pause);
+
   }, MINUTE_MS);
   return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
   }
@@ -56,6 +60,7 @@ useEffect(() => {
           <Box sx={{ width: "100%", position: "sticky", top: "86px" }}>
 
           {pause?
+
             <Quize open ={!pause}  getIsAnswered={getIsAnswered}/>
             :<Quize open={!pause}  getIsAnswered={getIsAnswered}/> }
 
@@ -63,14 +68,15 @@ useEffect(() => {
             <ReactPlayer
             url={`https://www.youtube.com/watch?v=${id}`}
             className="react-player"
-            controls={true}
+            controls={false}
             playing={true}
+
             />
 
             :<ReactPlayer
             url={`https://www.youtube.com/watch?v=${id}`}
             className="react-player"
-            controls={true}
+            controls={false}
             playing={false}
             />
 
