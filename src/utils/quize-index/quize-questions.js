@@ -29,10 +29,19 @@ export const questions = [
     {
         questionText: '_____ sometimes called a flight stick is an input device used to control vedio games',
         answerOptions: [
-            { answerText: 'A) monitor', isCorrect: false },
-            { answerText: 'B) mouse', isCorrect: false },
-            { answerText: 'C) keyboard', isCorrect: false },
-            { answerText: 'D) joystick', isCorrect: true },
+            {   answerText: 'A) monitor',
+                isCorrect: false
+            },
+            {
+                answerText: 'B) mouse',
+                isCorrect: false
+            },
+            {
+                answerText: 'C) keyboard',
+                isCorrect: false },
+            {
+                answerText: 'D) joystick',
+                 isCorrect: true },
         ],
     },
     {

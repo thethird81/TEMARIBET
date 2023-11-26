@@ -15,19 +15,19 @@ import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 export const logo = 'https://i.ibb.co/s9Qys2j/logo.png';
 
 export const categories = [
-  { name: 'Math add and sub kids', icon: <HomeIcon />, },
-  { name: 'sight words', icon: <CodeIcon />, },
-  { name: 'space science for kids', icon: <CodeIcon />, },
-  { name: 'General Science', icon: <CodeIcon />, },
-  { name: 'movie for age 7', icon: <MusicNoteIcon /> },
-  { name: 'Story for kids', icon: <SchoolIcon />, },
-  { name: 'Crafts for kids', icon: <OndemandVideoIcon />, },
-  { name: 'Number blocks', icon: <SportsEsportsIcon />, },
-  { name: 'number and color', icon: <LiveTvIcon />, },
-  { name: 'Art for kids hub ', icon: <FitnessCenterIcon />, },
-  { name: 'alphabet and animals ', icon: <CheckroomIcon />, },
-  { name: 'ye ethiopia lijoch', icon: <CheckroomIcon />, },
-  { name: 'steve and maggie', icon: <HomeIcon />, },
+  { description: 'Math add and sub kids 3 digit and 2 digit ',name: 'Math ', icon: <HomeIcon />, },
+  { description: 'sight words common words daytoday words',name: 'sight words', icon: <CodeIcon />, },
+  { description: 'space science for kids',name: 'Space', icon: <CodeIcon />, },
+  { description: 'kids plant animals science',name: 'Science', icon: <CodeIcon />, },
+  { description: 'animation movie for age 5',name: 'Movie', icon: <MusicNoteIcon /> },
+  { description: 'Story for kids',name: 'Story', icon: <SchoolIcon />, },
+  { description: 'Crafts for kids',name: 'Craft', icon: <OndemandVideoIcon />, },
+  { description: 'Number blocks', name: 'Number Block',icon: <SportsEsportsIcon />, },
+  { description: 'number and color',name: 'colors', icon: <LiveTvIcon />, },
+  { description: 'Art for kids hub ',name: 'Art', icon: <FitnessCenterIcon />, },
+  { description: 'alphabet and animals ',name: 'alphabet', icon: <CheckroomIcon />, },
+  { description: 'ye ethiopia lijoch', name: 'ye ethiopia lijoch',icon: <CheckroomIcon />, },
+  { description: 'steve and maggie',name: 'steve and maggi', icon: <HomeIcon />, },
 
 ];
 
