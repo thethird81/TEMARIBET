@@ -120,8 +120,8 @@ const QuizSinglePage = () => {
 	  }
 
   return (
-    <Container  sx={{ padding: '20px',marginTop: '20px', widht:500}} style={{backgroundColor: "orange" }}>
-      <Paper elevation={24} sx={{ padding: '20px' , width:700  }}>
+    <Container maxWidth='lg'  sx={{ padding: '20px',marginTop: '20px'}} style={{backgroundColor: "orange" }}>
+      <Paper elevation={24} sx={{ padding: '20px'   }}>
         <Typography variant="h5" color="black" gutterBottom>
           Question {currentQuestion + 1} of {questions.length}
         </Typography>

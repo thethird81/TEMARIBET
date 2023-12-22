@@ -22,7 +22,7 @@ const QuizeList = () => {
   return (
 
     <div style={{ padding: 20 }}>
-    <Grid container spacing={3}>
+    <Grid container spacing={1}>
       {subjects.map((subject) => (
         <Grid item key={subject.id} xs={12} sm={6} md={4} lg={3}>
           <Paper style={{ padding: 16 }}>
