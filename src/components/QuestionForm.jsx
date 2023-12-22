@@ -4,6 +4,7 @@ import React, { useState,useEffect } from 'react';
 import '../utils/quize-index/QuestionForm.css'; // Import the CSS file
 import {db} from '../utils/quize-index/firebase';
 import {getDocs,collection,doc,setDoc,addDoc} from 'firebase/firestore';
+import { Select, MenuItem, FormControl, InputLabel,Typography, Stack } from '@mui/material';
 
 
 // const QuestionForm = () => {
@@ -188,8 +189,31 @@ const QuestionForm = () => {
       { id: 'A', text: '', isCorrect: false },
       { id: 'B', text: '', isCorrect: false },
       { id: 'C', text: '', isCorrect: false },
+      { id: 'D', text: '', isCorrect: false },
     ],
   });
+
+  const [selectedOption, setSelectedOption] = useState('Maths');
+
+  const handleChange = (event) => {
+    setSelectedOption(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const subjects = [
+    { id: 1, name: 'Maths' },
+    { id: 2, name: 'evs' },
+    { id: 3, name: 'አካባቢ ሳይንስ' },
+    { id: 4, name: 'አማርኛ' },
+    { id: 5, name: 'English' },
+    { id: 6, name: 'Spoken' },
+    { id: 7, name: 'ግብረ ገብ' },
+    { id: 8, name: 'Music' },
+    { id: 9, name: 'HPE' },
+    { id: 10, name: 'ሒሳብ' },
+    { id: 11, name: 'Computer' },
+    // Add more subjects as needed
+  ];
 
 
   const handleOptionChange = (optionId, value) => {
@@ -236,7 +260,7 @@ const QuestionForm = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    const questionsCollection = collection(db, 'questions/maths/addition  and subtraction');
+    const questionsCollection = collection(db, `/${selectedOption}`);
 
     const newQuestion = {
       question: formData.question,
@@ -254,6 +278,7 @@ const QuestionForm = () => {
           { id: 'A', text: '', isCorrect: false },
           { id: 'B', text: '', isCorrect: false },
           { id: 'C', text: '', isCorrect: false },
+          { id: 'D', text: '', isCorrect: false },
         ],
       });
 
@@ -264,7 +289,31 @@ const QuestionForm = () => {
   };
 
   return (
-    <div className="form-container">
+
+
+    <Stack  >
+      <FormControl fullWidth>
+      <InputLabel id="dropdown-label" sx={{ color: "white" }}>Select an option</InputLabel>
+     <Select
+       labelId="dropdown-label"
+       id="dropdown"
+       value={selectedOption}
+       label="Select an option"
+       onChange={handleChange}
+       sx={{ color: "white" }} // set the text color to red
+    >
+      {subjects.map((subjects) => (
+        <MenuItem
+          key={subjects.id}
+          value={subjects.name}
+          sx={{ color: "black" }}
+        >
+          {subjects.name}
+        </MenuItem>
+      ))}
+    </Select>
+    </FormControl>
+
       <lable>Add Question</lable>
       <form onSubmit={handleFormSubmit}>
          <label>
@@ -279,10 +328,10 @@ const QuestionForm = () => {
 
 
          <label>
-           <div width='500px' align-items='space-evenly'>
+           <Stack width='500px' align-items='space-evenly'>
            Options:
            {formData.options.map((option) => (
-             <div key={option.id} >
+             <Stack key={option.id} direction={'row'} align-items='space-between' >
                <label>
                  <input
                    type="checkbox"
@@ -291,7 +340,7 @@ const QuestionForm = () => {
                  />
                  {option.id}
                </label>
-               <input
+               <input className='inputtext'
                  type="text"
                  value={option.text}
                  onChange={(e) => handleOptionChange(option.id, e.target.value)}
@@ -301,17 +350,17 @@ const QuestionForm = () => {
                <button type="button" onClick={() => handleRemoveOption(option.id)}>
                  Remove
                </button>
-             </div>
+             </Stack>
            ))}
            <button type="button" onClick={handleAddOption}>
              Add Option
            </button>
-           </div>
+           </Stack>
          </label>
 
          <button type="submit">Add Question</button>
        </form>
-    </div>
+    </Stack>
   );
 };
 

@@ -29,6 +29,8 @@ label {
 input {
   padding: 8px;
   margin-bottom: 12px;
+  background-color: rgb(230, 235, 248);
+  color: rgb(41, 7, 41);
 
 }
 .inputtext {
@@ -37,6 +39,8 @@ input {
   height: 100px;
   width: 500px;
   font: normal 2em Verdana, sans-serif;
+  background-color: rgb(247, 232, 234);
+  color: rgb(41, 7, 41);
 
 
 

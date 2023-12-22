@@ -14,8 +14,6 @@ const Navbar = () => (
     <Typography variant="h4" fontWeight="bold" mb={2} sx={{ color: "white" }}>
         TEMARIBET
     </Typography>
-
-
   </Stack>
 );
 

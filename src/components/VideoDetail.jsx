@@ -7,15 +7,16 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 
 
-import { Videos, Loader,Quize } from "./";
+import { Videos, Loader,Quize,Exam, AudioStudy,QuizSiglePage } from "./";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 
 const VideoDetail = () => {
   const [videoDetail, setVideoDetail] = useState([]);
   const [videos, setVideos] = useState([]);
   const { id } = useParams();
-  const [pause, setPause] = useState(false);
-
+  const [play, setPlay] = useState(false);
+  const [audioEnded, setAudioEnded] = useState(false);
+  const MINUTE_MS = 5000;
 
 
 
@@ -30,23 +31,45 @@ const VideoDetail = () => {
 
   function getIsAnswered(isAnswered)
   {
-    setPause(isAnswered);
+    setPlay(isAnswered);
   }
 
-  const MINUTE_MS = 60000;
+
 
 
 useEffect(() => {
-  if(pause)
+  // if(play)
+  // {
+  // const interval = setInterval(() => {
+  //   setPlay(false);
+  // }, MINUTE_MS);
+  // return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
+  // }
+  // else{
+  //   setPlay(!play);
+  //   setAudioEnded(false);
+  // }
+  console.log("audio ended:",audioEnded);
+  console.log("play:",play);
+
+  if(play)
   {
   const interval = setInterval(() => {
-   setPause(!pause);
-
+    setPlay(false);
+    setAudioEnded(false);
   }, MINUTE_MS);
   return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
   }
 
-}, [pause])
+
+  if(audioEnded)
+  {
+    setAudioEnded(false);
+    setPlay(true);
+
+  }
+
+}, [audioEnded,play]);
 
   if(!videoDetail?.snippet) return <Loader />;
   const { snippet: { title, channelId, channelTitle }, statistics: { viewCount, likeCount } } = videoDetail;
@@ -59,27 +82,29 @@ useEffect(() => {
         <Box flex={1}>
           <Box sx={{ width: "100%", position: "sticky", top: "86px" }}>
 
-          {pause?
+          {/* {play?
+            <Quize open ={!play}  setPlay={setPlay} getIsAnswered={getIsAnswered} setAudioEnded={setAudioEnded}/>
+            :<Quize open={!play}  setPlay={setPlay} getIsAnswered={getIsAnswered} setAudioEnded={setAudioEnded}/>
+             } */}
+             {play?
+            <AudioStudy open ={!play}  setPlay={setPlay} getIsAnswered={getIsAnswered} setAudioEnded={setAudioEnded}/>
+            :<AudioStudy open={!play}  setPlay={setPlay} getIsAnswered={getIsAnswered} setAudioEnded={setAudioEnded}/>
+             }
 
-            <Quize open ={!pause}  getIsAnswered={getIsAnswered}/>
-            :<Quize open={!pause}  getIsAnswered={getIsAnswered}/> }
 
-            {pause?
+            {play?
             <ReactPlayer
             url={`https://www.youtube.com/watch?v=${id}`}
             className="react-player"
             controls={false}
-            playing={true}
-
+            playing={play}
             />
-
             :<ReactPlayer
             url={`https://www.youtube.com/watch?v=${id}`}
             className="react-player"
             controls={false}
-            playing={false}
+            playing={play}
             />
-
             }
 
 
