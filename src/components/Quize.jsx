@@ -134,6 +134,7 @@ useEffect(() => {
 	      <Dialog open={openDialog} >
 
 			<Stack
+			display='flex'
 			direction="column"
 			justifyContent="center"
 			alignItems="center"
@@ -157,10 +158,12 @@ useEffect(() => {
 						<Typography  variant='h5' color='GrayText'>
 							Question {currentQuestion + 1}/{questions.length}
 						</Typography>
-						<Typography variant="h1" className='question-text'>{questions[currentQuestion].question} </Typography>
+						<Typography variant='h2'className='question-text'>{questions[currentQuestion].question} </Typography>
 
-					<Stack direction="row" spacing={2}>
-						<Stack direction="row" spacing={2} padding={8}>
+					<Stack direction={{ xs: 'column', sm: 'row' }}
+  							spacing={{ xs: 1, sm: 2, md: 4 }}>
+						<Stack  direction={{ xs: 'column', sm: 'row' }}
+  						spacing={{ xs: 1, sm: 2, md: 4 }}>
 						{questions[currentQuestion].options?.map((answerOption) => (
 							<Button variant="contained" onClick={() => handleAnswerOptionClick(answerOption.isCorrect)} disabled = {wrongAnswer} >
 								<Typography variant='h2'>{answerOption.text}</Typography>
