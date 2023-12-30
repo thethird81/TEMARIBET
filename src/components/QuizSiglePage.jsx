@@ -87,6 +87,7 @@ const QuizSinglePage = () => {
   };
 
   const handleNextQuestion = () => {
+
     if (selectedOption === questions[currentQuestion].options.find((opt) => opt.isCorrect).id) {
       setScore(score + 1);
     }
@@ -96,6 +97,7 @@ const QuizSinglePage = () => {
     setSelectedOption('');
     if (currentQuestion + 1 < questions.length) {
       setCurrentQuestion(currentQuestion + 1);
+
     } else {
       setShowResult(true);
     }

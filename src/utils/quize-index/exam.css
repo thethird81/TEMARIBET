@@ -11,13 +11,6 @@ body {
     color: #ffffff;
   }
 
-  body {
-    background-color: #7cc6fe;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
 
   .app {
     background-color: #252d4a;

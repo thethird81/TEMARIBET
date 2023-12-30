@@ -1,10 +1,12 @@
 import React, { useRef } from 'react'
-import Dialog from '@mui/material/Dialog';
+
 import { useState, useEffect } from 'react';
 import '../utils/quize-index/index.css';
 import {questions} from '../utils/quize-index/quize-questions';
 import {getDocs,collection,doc,setDoc,addDoc, QuerySnapshot} from 'firebase/firestore';
 import {db} from '../utils/quize-index/firebase';
+import { IconButton,Box, Stack, Button ,Dialog,Typography, Container} from '@mui/material';
+
 
 
 const Quize = (props) => {
@@ -22,29 +24,34 @@ const Quize = (props) => {
 
 
 useEffect(() => {
+if(wrongAnswer && seconds >= 0)
+{
 
 	const intervalId = setInterval(() => {
-		if (seconds >= 0)
+
 		setSeconds((prevSeconds) => prevSeconds - 1);
-		else
-		setSeconds(15);
+
 	  }, 1000);
+	  return () => clearInterval(intervalId);
 
-	const MINUTE_MS = 15000;
 
-	const interval = setInterval(() => {
+}
 
-				setWrongAnswer(false);
-	   }, MINUTE_MS);
 
-	   return () => clearInterval(interval,intervalId); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
-},[wrongAnswer]);
+else{
+
+		setWrongAnswer(false);
+		setSeconds(15);
+}
+
+
+},[wrongAnswer,seconds]);
 
 useEffect(() => {
 
 	const getQuestions = async () => {
 		try {
-		  const querySnapshot = await getDocs(collection(db, '/questions/maths/addition  and subtraction')); // replace 'your-collection' with your actual collection name
+		  const querySnapshot = await getDocs(collection(db, '/questions/maths/multiplication')); // replace 'your-collection' with your actual collection name
 		  const dataArray = [];
 
 		  querySnapshot.forEach((doc) => {
@@ -90,16 +97,7 @@ useEffect(() => {
 
 	const handleAnswerOptionClick = (isCorrect) => {
 
-		// if (isCorrect) {
-		// 	setScore(score + 1);
-		// }
 
-		// const nextQuestion = currentQuestion + 1;
-		// if (nextQuestion < questions.length) {
-		// 	setCurrentQuestion(nextQuestion);
-		// } else {
-		// 	setShowScore(true);
-		// }
 
 		const nextQuestion = Math.floor(Math.random() * questions.length - 0 + 1) + 0;
 
@@ -120,10 +118,7 @@ useEffect(() => {
 		}
 		else{
 			setWrongAnswer(true);
-			// if(nextQuestion < questions.length )
-			// setCurrentQuestion(nextQuestion);
-			// else
-			// setCurrentQuestion(0);
+
 
 		}
 
@@ -136,53 +131,45 @@ useEffect(() => {
 
   return (
 
-	// <div className='app'>
-	// 		{showScore ? (
-	// 			<div className='score-section'>
-	// 				You scored {score} out of {questions.length}
-	// 			</div>
-	// 		) : (
-	// 			<>
-	// 				<div className='question-section'>
-	// 					<div className='question-count'>
-	// 						<span>Question {currentQuestion + 1}</span>/{questions.length}
-	// 					</div>
-	// 					<div className='question-text'>{questions[currentQuestion].question}</div>
-	// 				</div>
-	// 				<div className='answer-section'>
-	// 					{questions[currentQuestion].options?.map((answerOption) => (
-	// 						<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.text}</button>
-	// 					))}
-	// 				</div>
-	// 			</>
-	// 		)}
-	// 	</div>
+	      <Dialog open={openDialog} >
 
+			<Stack
+			direction="column"
+			justifyContent="center"
+			alignItems="center"
+			spacing={2}
+			padding={8}
+			>
 
-      <Dialog open={openDialog} className='dialogStyle'>
-        		<div className='app'>
 				{
 
-					wrongAnswer?<h1>wrong <br></br>please wait...{seconds}</h1>
-					:<h1>you can try now</h1>
+					wrongAnswer?<Box>
+						<Typography variant="h3" color='GrayText'>wrong please wait...</Typography>
+
+						<Typography variant="h3" color='error'>{seconds}</Typography>
+
+					</Box>
+					:<Typography variant="h3"  color='primary'>you can try now</Typography>
 
 
 				}
-					<div className='question-section'>
-						<div className='question-count'>
-							<span>Question {currentQuestion + 1}</span>/{questions.length}
-						</div>
-						<div className='question-text'>{questions[currentQuestion].question} ?</div>
-					</div>
-					<div className='answer-section'>
-						<div>
-						{questions[currentQuestion].options?.map((answerOption) => (
-							<button className='mybutton' onClick={() => handleAnswerOptionClick(answerOption.isCorrect)} disabled = {wrongAnswer} >{answerOption.text}</button>
-						))}
-						</div>
 
-					</div>
-				</div>
+						<Typography  variant='h5' color='GrayText'>
+							Question {currentQuestion + 1}/{questions.length}
+						</Typography>
+						<Typography variant="h1" className='question-text'>{questions[currentQuestion].question} </Typography>
+
+					<Stack direction="row" spacing={2}>
+						<Stack direction="row" spacing={2} padding={8}>
+						{questions[currentQuestion].options?.map((answerOption) => (
+							<Button variant="contained" onClick={() => handleAnswerOptionClick(answerOption.isCorrect)} disabled = {wrongAnswer} >
+								<Typography variant='h2'>{answerOption.text}</Typography>
+								</Button>
+						))}
+						</Stack>
+
+					</Stack>
+				</Stack>
 
       </Dialog>
 

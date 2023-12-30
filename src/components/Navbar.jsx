@@ -7,9 +7,9 @@ import img from "../utils/abye2.png"
 import { SearchBar } from "./";
 
 const Navbar = () => (
-  <Stack direction="row" alignItems="center" p={2} sx={{ position:  "sticky", background: '#000', top: 0, justifyContent: "space-between" }}>
+  <Stack direction="row"  alignItems="center" p={2} sx={{ position:  "sticky",zIndex: 1300, background: '#000', top: 0, justifyContent: "space-between" }}>
     <Link to="/" style={{ display: "flex", alignItems: "center" }}>
-      <img src={img} alt="logo" height={90}  width={90} />
+      <img src={img} alt="logo" height={90}  width={90} sx={{ borderRadius: '50%' }} />
     </Link>
     <Typography variant="h4" fontWeight="bold" mb={2} sx={{ color: "white" }}>
         TEMARIBET

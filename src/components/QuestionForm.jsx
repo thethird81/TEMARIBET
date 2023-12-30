@@ -4,7 +4,7 @@ import React, { useState,useEffect } from 'react';
 import '../utils/quize-index/QuestionForm.css'; // Import the CSS file
 import {db} from '../utils/quize-index/firebase';
 import {getDocs,collection,doc,setDoc,addDoc} from 'firebase/firestore';
-import { Select, MenuItem, FormControl, InputLabel,Typography, Stack } from '@mui/material';
+import { Select, MenuItem, FormControl, InputLabel,Typography, Stack,Box } from '@mui/material';
 
 
 // const QuestionForm = () => {
@@ -211,7 +211,8 @@ const QuestionForm = () => {
     { id: 8, name: 'Music' },
     { id: 9, name: 'HPE' },
     { id: 10, name: 'ሒሳብ' },
-    { id: 11, name: 'Computer' },
+    { id: 11, name: 'Computer'},
+    { id: 12, name: 'questions/maths/multiplication'  },
     // Add more subjects as needed
   ];
 
@@ -260,7 +261,7 @@ const QuestionForm = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    const questionsCollection = collection(db, `/${selectedOption}`);
+    const questionsCollection = collection(db, `/${selectedOption}` );
 
     const newQuestion = {
       question: formData.question,
@@ -291,22 +292,22 @@ const QuestionForm = () => {
   return (
 
 
-    <Stack  >
-      <FormControl fullWidth>
-      <InputLabel id="dropdown-label" sx={{ color: "white" }}>Select an option</InputLabel>
+    <Box bgcolor={'skyblue'} padding={4} display={'flex'} alignItems={'center'}>
+      <FormControl >
+      <InputLabel id="dropdown-label" sx={{ color: "black",fontWeight:"bold" }}>Select an option</InputLabel>
      <Select
        labelId="dropdown-label"
        id="dropdown"
        value={selectedOption}
        label="Select an option"
        onChange={handleChange}
-       sx={{ color: "white" }} // set the text color to red
+       sx={{ color: "black",fontWeight:"bold" }} // set the text color to red
     >
       {subjects.map((subjects) => (
         <MenuItem
           key={subjects.id}
           value={subjects.name}
-          sx={{ color: "black" }}
+          sx={{ color: "black" ,fontWeight:"bold" }}
         >
           {subjects.name}
         </MenuItem>
@@ -314,10 +315,10 @@ const QuestionForm = () => {
     </Select>
     </FormControl>
 
-      <lable>Add Question</lable>
+
       <form onSubmit={handleFormSubmit}>
-         <label>
-           Question:
+         <label >
+           New Question:
            </label>
            <textarea className='inputtext'
              type="text"
@@ -328,10 +329,10 @@ const QuestionForm = () => {
 
 
          <label>
-           <Stack width='500px' align-items='space-evenly'>
+           <Stack>
            Options:
            {formData.options.map((option) => (
-             <Stack key={option.id} direction={'row'} align-items='space-between' >
+             <Stack key={option.id} direction={'row'} spacing={2} padding={2}>
                <label>
                  <input
                    type="checkbox"
@@ -352,15 +353,17 @@ const QuestionForm = () => {
                </button>
              </Stack>
            ))}
-           <button type="button" onClick={handleAddOption}>
-             Add Option
-           </button>
+
            </Stack>
          </label>
-
+         <Stack  direction={'row'} spacing={2} padding={2}>
+         <button type="button" onClick={handleAddOption}>
+             Add Option
+           </button>
          <button type="submit">Add Question</button>
+         </Stack>
        </form>
-    </Stack>
+    </Box>
   );
 };
 

@@ -1,18 +1,22 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Box } from '@mui/material';
+import { Box ,Stack} from '@mui/material';
 import { ChannelDetail, VideoDetail, SearchFeed,
   Navbar, Feed, QuestionForm,AudioFileList,FirebaseAudio,
-  QuizSiglePage,QuizeList } from './components';
+  QuizSiglePage,QuizeList ,Home} from './components';
+import { alignProperty } from "@mui/material/styles/cssUtils";
+import { AlignHorizontalCenter } from "@mui/icons-material";
+
 
 
 
 
 const App = () =>  (
     <BrowserRouter>
-    <Box sx={{ backgroundColor: '#000' }}>
-
-      <Routes>
-        <Route path='/' element={<QuizeList/>}/>
+    <Stack  >
+   <Navbar/>
+      <Box>
+        <Routes>
+        <Route path='/' element={<Home/>}/>
         <Route exact path='/feed' element={<Feed/>}/>
         <Route path='/video/:id' element={<VideoDetail />} />
         <Route path='/channel/:id' element={<ChannelDetail />} />
@@ -20,9 +24,11 @@ const App = () =>  (
         <Route path='/QuestionForm' element={<QuestionForm />}  />
         <Route path='/GoogleDrive/AudioFileList' element={<AudioFileList/>}/>
         <Route path='/QuizSiglePage/:subjectName' element={<QuizSiglePage/>}/>
+        <Route path='/QuizeList' element={<QuizeList />}  />
 
       </Routes>
-    </Box>
+      </Box>
+    </Stack>
   </BrowserRouter>
   );
 

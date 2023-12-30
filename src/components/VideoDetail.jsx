@@ -11,12 +11,62 @@ import { Videos, Loader,Quize,Exam, AudioStudy,QuizSiglePage } from "./";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 
 const VideoDetail = () => {
+
   const [videoDetail, setVideoDetail] = useState([]);
   const [videos, setVideos] = useState([]);
   const { id } = useParams();
   const [play, setPlay] = useState(false);
   const [audioEnded, setAudioEnded] = useState(false);
-  const MINUTE_MS = 5000;
+  const MINUTE_MS = 60000;
+  const [duration, setDuration] = useState(0);
+  const [played, setPlayed] = useState(0);
+  const [remainingTime, setRemainingTime] = useState(0);
+
+  const formatDuration = (timeInSeconds) => {
+    const hours = Math.floor(timeInSeconds / 3600);
+    const minutes = Math.floor((timeInSeconds % 3600) / 60);
+    const seconds = Math.floor(timeInSeconds % 60);
+    return `${hours}:${minutes}:${seconds}`;
+  };
+
+    const handleDuration = (d) => {
+      setDuration(d);
+    };
+
+    // const handleProgress = (state) => {
+    //   if (duration) {
+    //     setPlayed(state.played);
+    //   }
+    // };
+    const handleProgress = (state) => {
+      if (!state.seeking) {
+        setPlayed(state.played);
+        setRemainingTime((duration - state.played * duration) || 0);
+      }
+    };
+
+    const handleSeekChange = (e) => {
+      setPlayed(parseFloat(e.target.value));
+    };
+
+    const handleSeekMouseDown = () => {
+      // Pause the video while seeking
+      // You may want to add additional logic based on your requirements
+    };
+
+    const handleSeekMouseUp = (e) => {
+      // Seek to the selected position when the mouse is released
+      const newPosition = parseFloat(e.target.value);
+      setPlayed(newPosition);
+      // Seek to the new position in the video
+      if (duration) {
+        // ReactPlayer seekTo function expects a value between 0 and 1
+        const seekTime = newPosition * duration;
+        // Seek to the new position
+        // You may want to use the ref attribute of ReactPlayer to get the player instance
+        // and then call seekTo on it. Example: playerRef.current.seekTo(seekTime);
+      }
+    };
 
 
 
@@ -87,22 +137,42 @@ useEffect(() => {
             :<Quize open={!play}  setPlay={setPlay} getIsAnswered={getIsAnswered} setAudioEnded={setAudioEnded}/>
              } */}
              {play?
-            <AudioStudy open ={!play}  setPlay={setPlay} getIsAnswered={getIsAnswered} setAudioEnded={setAudioEnded}/>
-            :<AudioStudy open={!play}  setPlay={setPlay} getIsAnswered={getIsAnswered} setAudioEnded={setAudioEnded}/>
+            <Quize open ={!play}  setPlay={setPlay} getIsAnswered={getIsAnswered} setAudioEnded={setAudioEnded}/>
+            :<Quize open={!play}  setPlay={setPlay} getIsAnswered={getIsAnswered} setAudioEnded={setAudioEnded}/>
              }
 
 
             {play?
-            <ReactPlayer
-            url={`https://www.youtube.com/watch?v=${id}`}
-            className="react-player"
-            controls={false}
-            playing={play}
-            />
+            <div>
+              <ReactPlayer
+                  url={`https://www.youtube.com/watch?v=${id}`}
+                  className="react-player"
+                  controls={false}
+                  playing={play}
+                  onDuration={handleDuration}
+                  onProgress={handleProgress}
+              />
+                <div>
+                  <input
+                    type="range"
+                    min={0}
+                    max={1}
+                    step="any"
+                    value={played}
+                    style={{ width: '100%' }}
+                    onChange={handleSeekChange}
+                    onMouseDown={handleSeekMouseDown}
+                    onMouseUp={handleSeekMouseUp}
+                  />
+                <div>
+                Duration: {formatDuration(duration)} | Remaining: {formatDuration(remainingTime)}
+                </div>
+                </div>
+              </div>
             :<ReactPlayer
             url={`https://www.youtube.com/watch?v=${id}`}
             className="react-player"
-            controls={false}
+            controls={true}
             playing={play}
             />
             }

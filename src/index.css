@@ -1,8 +1,9 @@
 html,
 body {
-  margin: 0;
+  margin: 10px;
   padding: 0;
   box-sizing: border-box;
+  background-color: #081c41;
 }
 
 a {
