@@ -16,7 +16,7 @@ const VideoDetail = () => {
   const { id } = useParams();
   const [play, setPlay] = useState(false);
   const [audioEnded, setAudioEnded] = useState(false);
-  const MINUTE_MS = 10000;
+  const MINUTE_MS = 60000;
 
 
 
