@@ -16,8 +16,8 @@ const App = () =>  (
    <Navbar/>
       <Box>
         <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route exact path='/feed' element={<Feed/>}/>
+
+        <Route exact path='/' element={<Feed/>}/>
         <Route path='/video/:id' element={<VideoDetail />} />
         <Route path='/channel/:id' element={<ChannelDetail />} />
         <Route path='/search/:searchTerm' element={<SearchFeed />} />
@@ -25,6 +25,7 @@ const App = () =>  (
         <Route path='/GoogleDrive/AudioFileList' element={<AudioFileList/>}/>
         <Route path='/QuizSiglePage/:subjectName' element={<QuizSiglePage/>}/>
         <Route path='/QuizeList' element={<QuizeList />}  />
+        <Route path='/Home' element={<Home/>}/>
 
       </Routes>
       </Box>
