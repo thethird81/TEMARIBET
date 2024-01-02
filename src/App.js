@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Box ,Stack} from '@mui/material';
 import { ChannelDetail, VideoDetail, SearchFeed,
   Navbar, Feed, QuestionForm,AudioFileList,FirebaseAudio,
-  QuizSiglePage,QuizeList ,Home} from './components';
+  QuizSiglePage,QuizeList } from './components';
 import { alignProperty } from "@mui/material/styles/cssUtils";
 import { AlignHorizontalCenter } from "@mui/icons-material";
 
@@ -25,7 +25,7 @@ const App = () =>  (
         <Route path='/GoogleDrive/AudioFileList' element={<AudioFileList/>}/>
         <Route path='/QuizSiglePage/:subjectName' element={<QuizSiglePage/>}/>
         <Route path='/QuizeList' element={<QuizeList />}  />
-        <Route path='/Home' element={<Home/>}/>
+
 
       </Routes>
       </Box>

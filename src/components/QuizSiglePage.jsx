@@ -156,10 +156,8 @@ const QuizSinglePage = () => {
                 <FormControlLabel
                   key={option.id}
                   value={option.id}
-                  control={<Radio sx={{
-                    backgroundColor: (theme) => theme.palette.secondary.light
-                  }} />}
-                  label=<Typography variant="h4" color="black">{option.text}</Typography>
+                  control={<Radio />}
+                  label = <Typography variant="h4" color="black">{option.text}</Typography>
                 />
               ))}
             </RadioGroup>

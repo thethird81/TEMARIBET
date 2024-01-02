@@ -18,7 +18,7 @@ export { default as QuizSiglePage } from './QuizSiglePage';
 export { default as AudioFileList } from './GoogleDrive/AudioFileList';
 export { default as FirebaseAudio } from './FirebaseAudio/FirebaseAudio';
 export { default as QuizeList } from './QuizeList';
-export { default as Home } from './Home';
+
 
 
 

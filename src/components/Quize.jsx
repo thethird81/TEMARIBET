@@ -5,7 +5,8 @@ import '../utils/quize-index/index.css';
 import {questions} from '../utils/quize-index/quize-questions';
 import {getDocs,collection,doc,setDoc,addDoc, QuerySnapshot} from 'firebase/firestore';
 import {db} from '../utils/quize-index/firebase';
-import { IconButton,Box, Stack, Button ,Dialog,Typography, Container} from '@mui/material';
+import { IconButton,Box, Stack, Button ,Dialog,Typography, Container, Avatar} from '@mui/material';
+import { deepOrange, deepPurple } from '@mui/material/colors';
 
 
 
@@ -147,7 +148,7 @@ useEffect(() => {
 					wrongAnswer?<Box>
 						<Typography variant="h3" color='GrayText'>wrong please wait...</Typography>
 
-						<Typography variant="h3" color='error'>{seconds}</Typography>
+						<Avatar sx={{ width:70, height: 70 , bgcolor: deepPurple[100] }}><Typography variant="h3" color='error'>{seconds}</Typography></Avatar>
 
 					</Box>
 					:<Typography variant="h3"  color='primary'>you can try now</Typography>
@@ -165,7 +166,7 @@ useEffect(() => {
 						<Stack  direction={{ xs: 'column', sm: 'row' }}
   						spacing={{ xs: 1, sm: 2, md: 4 }}>
 						{questions[currentQuestion].options?.map((answerOption) => (
-							<Button variant="contained" onClick={() => handleAnswerOptionClick(answerOption.isCorrect)} disabled = {wrongAnswer} >
+							<Button variant="outlined" onClick={() => handleAnswerOptionClick(answerOption.isCorrect)} disabled = {wrongAnswer} >
 								<Typography variant='h2'>{answerOption.text}</Typography>
 								</Button>
 						))}

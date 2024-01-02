@@ -3,7 +3,7 @@ import '../utils/quize-index/index.css';
 import React, { useRef } from 'react'
 import Dialog from '@mui/material/Dialog';
 import { useState, useEffect } from 'react';
-import '../utils/quize-index/exam.css';
+
 //import {questions} from '../utils/quize-index/quize-questions';
 import {getDocs,collection,doc,setDoc,addDoc, QuerySnapshot} from 'firebase/firestore';
 import {db} from '../utils/quize-index/firebase';

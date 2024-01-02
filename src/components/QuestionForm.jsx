@@ -292,9 +292,9 @@ const QuestionForm = () => {
   return (
 
 
-    <Box bgcolor={'skyblue'} padding={4} display={'flex'} alignItems={'center'}>
+    <Box bgcolor={'skyblue'}  display={'flex'} justifyContent={'center'} padding={4}>
       <FormControl >
-      <InputLabel id="dropdown-label" sx={{ color: "black",fontWeight:"bold" }}>Select an option</InputLabel>
+      <InputLabel id="dropdown-label" >Select an option</InputLabel>
      <Select
        labelId="dropdown-label"
        id="dropdown"
@@ -307,7 +307,6 @@ const QuestionForm = () => {
         <MenuItem
           key={subjects.id}
           value={subjects.name}
-          sx={{ color: "black" ,fontWeight:"bold" }}
         >
           {subjects.name}
         </MenuItem>
@@ -316,7 +315,7 @@ const QuestionForm = () => {
     </FormControl>
 
 
-      <form onSubmit={handleFormSubmit}>
+      <FormControl onSubmit={handleFormSubmit}>
          <label >
            New Question:
            </label>
@@ -362,7 +361,7 @@ const QuestionForm = () => {
            </button>
          <button type="submit">Add Question</button>
          </Stack>
-       </form>
+       </FormControl>
     </Box>
   );
 };
