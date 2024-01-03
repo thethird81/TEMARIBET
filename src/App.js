@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Box ,Stack} from '@mui/material';
 import { ChannelDetail, VideoDetail, SearchFeed,
-        Navbar, Feed, QuestionForm,AudioFileList,
-        QuizSiglePage,QuizeList } from './components';
-
+  Navbar, Feed, QuestionForm,AudioFileList,FirebaseAudio,
+  QuizSiglePage,QuizeList } from './components';
+import { alignProperty } from "@mui/material/styles/cssUtils";
+import { AlignHorizontalCenter } from "@mui/icons-material";
 
 
 
