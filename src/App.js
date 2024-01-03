@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Box } from '@mui/material';
-import { ChannelDetail, VideoDetail, SearchFeed, Navbar, Feed, QuestionForm } from './components';
+import { ChannelDetail, VideoDetail, SearchFeed, Navbar, Feed, ExamRoom,ManageQuastions } from './components';
 
 
 
@@ -13,7 +13,8 @@ const App = () =>  (
         <Route path='/video/:id' element={<VideoDetail />} />
         <Route path='/channel/:id' element={<ChannelDetail />} />
         <Route path='/search/:searchTerm' element={<SearchFeed />} />
-        <Route path='/QuestionForm' element={<QuestionForm />}  />
+        <Route path='/ExamRoom/:subjectName' element={<ExamRoom/>}/>
+        <Route path='/ManageQuastions' element={<ManageQuastions />}  />
 
       </Routes>
     </Box>

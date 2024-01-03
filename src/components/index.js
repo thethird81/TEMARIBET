@@ -10,6 +10,8 @@ export { default as VideoCard } from './VideoCard';
 export { default as ChannelCard } from './ChannelCard';
 export { default as Loader } from './Loader';
 export { default as Quize } from './Quize';
-export { default as QuestionForm } from './QuestionForm';
+export { default as ManageQuastions } from './ManageQuastions';
+export { default as ExamRoom } from './ExamRoom';
+
 
 
