@@ -69,7 +69,8 @@ const Navbar = () =>
       <Link to="/" style={{ display: "flex", alignItems: "center" }}>
         <Typography variant="h5" fontWeight="bold" mb={2} sx={{ color: "red" }}>
         <img src={logo} alt="logo" height={25}  width={35}/> KERE
-        </Typography><Typography variant="h5" sx={{ color: "blue" }}>MELA</Typography>
+        </Typography>
+        <Typography variant="h5" sx={{ color: "blue" }}>MELA</Typography>
       </Link>
       </Stack>
 

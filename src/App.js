@@ -12,11 +12,10 @@ import { AlignHorizontalCenter } from "@mui/icons-material";
 
 const App = () =>  (
     <BrowserRouter>
-    <Stack  >
-   <Navbar/>
-      <Box>
+    <Stack>
+    <Navbar/>
+      <Box sx={{ backgroundColor: '#000' }}>
         <Routes>
-
         <Route exact path='/' element={<Feed/>}/>
         <Route path='/video/:id' element={<VideoDetail />} />
         <Route path='/channel/:id' element={<ChannelDetail />} />
@@ -24,7 +23,7 @@ const App = () =>  (
         <Route path='/QuestionForm' element={<QuestionForm />}  />
         <Route path='/GoogleDrive/AudioFileList' element={<AudioFileList/>}/>
         <Route path='/QuizSiglePage/:subjectName' element={<QuizSiglePage/>}/>
-        <Route path='/QuizeList' element={<QuizeList />}  />
+        <Route path='/QuizeList' element={<QuizeList />} />
 
 
       </Routes>
