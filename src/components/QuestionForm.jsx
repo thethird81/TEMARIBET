@@ -4,6 +4,7 @@ import React, { useState,useEffect } from 'react';
 import '../utils/quize-index/QuestionForm.css'; // Import the CSS file
 import {db} from '../utils/quize-index/firebase';
 import {getDocs,collection,doc,setDoc,addDoc} from 'firebase/firestore';
+import { Select, MenuItem, FormControl, InputLabel,Typography, Stack,Box } from '@mui/material';
 
 
 // const QuestionForm = () => {
@@ -188,8 +189,32 @@ const QuestionForm = () => {
       { id: 'A', text: '', isCorrect: false },
       { id: 'B', text: '', isCorrect: false },
       { id: 'C', text: '', isCorrect: false },
+      { id: 'D', text: '', isCorrect: false },
     ],
   });
+
+  const [selectedOption, setSelectedOption] = useState('Maths');
+
+  const handleChange = (event) => {
+    setSelectedOption(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const subjects = [
+    { id: 1, name: 'Maths' },
+    { id: 2, name: 'evs' },
+    { id: 3, name: 'አካባቢ ሳይንስ' },
+    { id: 4, name: 'አማርኛ' },
+    { id: 5, name: 'English' },
+    { id: 6, name: 'Spoken' },
+    { id: 7, name: 'ግብረ ገብ' },
+    { id: 8, name: 'Music' },
+    { id: 9, name: 'HPE' },
+    { id: 10, name: 'ሒሳብ' },
+    { id: 11, name: 'Computer'},
+    { id: 12, name: 'questions/maths/multiplication'  },
+    // Add more subjects as needed
+  ];
 
 
   const handleOptionChange = (optionId, value) => {
@@ -236,7 +261,7 @@ const QuestionForm = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    const questionsCollection = collection(db, 'questions/maths/addition  and subtraction');
+    const questionsCollection = collection(db, `/${selectedOption}` );
 
     const newQuestion = {
       question: formData.question,
@@ -254,6 +279,7 @@ const QuestionForm = () => {
           { id: 'A', text: '', isCorrect: false },
           { id: 'B', text: '', isCorrect: false },
           { id: 'C', text: '', isCorrect: false },
+          { id: 'D', text: '', isCorrect: false },
         ],
       });
 
@@ -264,11 +290,34 @@ const QuestionForm = () => {
   };
 
   return (
-    <div className="form-container">
-      <lable>Add Question</lable>
-      <form onSubmit={handleFormSubmit}>
-         <label>
-           Question:
+
+
+    <Box bgcolor={'skyblue'}  display={'flex'} justifyContent={'center'} padding={4}>
+      <FormControl >
+      <InputLabel id="dropdown-label" >Select an option</InputLabel>
+     <Select
+       labelId="dropdown-label"
+       id="dropdown"
+       value={selectedOption}
+       label="Select an option"
+       onChange={handleChange}
+       sx={{ color: "black",fontWeight:"bold" }} // set the text color to red
+    >
+      {subjects.map((subjects) => (
+        <MenuItem
+          key={subjects.id}
+          value={subjects.name}
+        >
+          {subjects.name}
+        </MenuItem>
+      ))}
+    </Select>
+    </FormControl>
+
+
+      <FormControl onSubmit={handleFormSubmit}>
+         <label >
+           New Question:
            </label>
            <textarea className='inputtext'
              type="text"
@@ -279,10 +328,10 @@ const QuestionForm = () => {
 
 
          <label>
-           <div width='500px' align-items='space-evenly'>
+           <Stack>
            Options:
            {formData.options.map((option) => (
-             <div key={option.id} >
+             <Stack key={option.id} direction={'row'} spacing={2} padding={2}>
                <label>
                  <input
                    type="checkbox"
@@ -291,7 +340,7 @@ const QuestionForm = () => {
                  />
                  {option.id}
                </label>
-               <input
+               <input className='inputtext'
                  type="text"
                  value={option.text}
                  onChange={(e) => handleOptionChange(option.id, e.target.value)}
@@ -301,17 +350,19 @@ const QuestionForm = () => {
                <button type="button" onClick={() => handleRemoveOption(option.id)}>
                  Remove
                </button>
-             </div>
+             </Stack>
            ))}
-           <button type="button" onClick={handleAddOption}>
+
+           </Stack>
+         </label>
+         <Stack  direction={'row'} spacing={2} padding={2}>
+         <button type="button" onClick={handleAddOption}>
              Add Option
            </button>
-           </div>
-         </label>
-
          <button type="submit">Add Question</button>
-       </form>
-    </div>
+         </Stack>
+       </FormControl>
+    </Box>
   );
 };
 
